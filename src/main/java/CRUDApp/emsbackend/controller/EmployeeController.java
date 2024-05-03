@@ -1,6 +1,8 @@
 package CRUDApp.emsbackend.controller;
 
 import CRUDApp.emsbackend.dto.EmployeeDto;
+import CRUDApp.emsbackend.dto.LoginDto;
+import CRUDApp.emsbackend.response.LoginResponse;
 import CRUDApp.emsbackend.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -52,4 +54,20 @@ public class EmployeeController {
         employeeService.deleteEmployee(employeeId);
         return ResponseEntity.ok("Employee deleted");
     }
+
+    //Add Employee From Form
+    @PostMapping(path = "/save")
+    public String saveEmployee(@RequestBody EmployeeDto employeeDTO)
+    {
+        String id = employeeService.addEmployee(employeeDTO);
+        return id;
+    }
+    //Login Employee
+    @PostMapping(path = "/login")
+    public ResponseEntity<?> loginEmployee(@RequestBody LoginDto loginDTO)
+    {
+        LoginResponse loginResponse = employeeService.loginEmployee(loginDTO);
+        return ResponseEntity.ok(loginResponse);
+    }
+
 }

@@ -11,20 +11,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class EmployeeDto {
-    private Long id;
-    private String firstName;
-    private String lastName;
+
+public class LoginDto {
     private String email;
     private String password;
 
     @Override
     public String toString() {
-        return "EmployeeDto{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+        return "LoginDto{" +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

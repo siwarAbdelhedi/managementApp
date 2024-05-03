@@ -26,4 +26,17 @@ public class Employee {
     @Column(name = "email_id", nullable = false, unique = true)
     private String email;
 
+    @Column(name="password", length = 255)
+    private String password;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
